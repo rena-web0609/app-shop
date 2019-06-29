@@ -11,4 +11,4 @@
 |
 */
 
-Route::resoutces('products','ProductController');
+Route::resource('products','ProductController');
