@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use Auth;
 
 class ProductController extends Controller
 {
@@ -12,8 +13,11 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //一覧表示機能
     public function index()
     {
+        //productsテーブル全カラム
         $products = Product::all();
 
         return view('products.index',[
@@ -26,9 +30,11 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //商品登録画面表示
     public function create()
     {
-
+        return view('products.create');
     }
 
     /**
@@ -37,9 +43,22 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    //商品登録
     public function store(Request $request)
     {
-        //
+        $product = new Product();
+        $product -> fill($request->all());
+
+        $filename = $request->pic->store('public/pic');
+        $product->pic = basename($filename);
+
+        $user = Auth::user();
+        $product->user_id = $user->id;
+
+        $product->save();
+
+        redirect()->route('products.index');
     }
 
     /**
