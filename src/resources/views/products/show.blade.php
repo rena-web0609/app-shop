@@ -10,7 +10,7 @@
         </form>
     </ul>
     <div>
-        <img src="{{ $product->pic }}">
+        <img src="{{ asset('/storage/pic/'.$product->pic) }}">
         <p>{{ $product->name }}</p>
         <p>{{ $product->comment }}</p>
         <p>{{ $product->price }}</p>
