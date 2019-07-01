@@ -13,7 +13,7 @@ class CreateProduct extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,10 +21,26 @@ class CreateProduct extends FormRequest
      *
      * @return array
      */
+    //バリデーションチェック
     public function rules()
     {
         return [
-            //
+            'pic' => 'required|image',
+            'name' => 'required|max:100',
+            'comment' => 'required|max:500',
+            'price' => 'required|integer',
         ];
     }
+
+    //入力欄の名称を日本語にカスタマイズ
+    public function attributes()
+    {
+        return [
+            'pic' => '商品画像',
+            'name' => '商品タイトル',
+            'comment' => '説明文',
+            'price' => '価格',
+        ];
+    }
+
 }

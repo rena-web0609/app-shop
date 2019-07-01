@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateProduct;
 use Illuminate\Http\Request;
 use App\Product;
 use Auth;
@@ -45,7 +46,7 @@ class ProductController extends Controller
      */
 
     //商品登録
-    public function store(Request $request)
+    public function store(CreateProduct $request)
     {
         //商品画面作成
         $product = new Product();
@@ -104,7 +105,7 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     //商品編集
-    public function update(Request $request,int $product)
+    public function update(CreateProduct $request,int $product)
     {
         //idが一致する商品を取得
         $product = Product::find($product);
