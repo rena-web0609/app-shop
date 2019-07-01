@@ -11,7 +11,7 @@
 <body>
 <header>
     <nav class="my-navbar">
-        <a class="my-navbar-brand" href="/">SHOP</a>
+        <a class="my-navbar-brand" href={{ route('products.index') }}>SHOP</a>
     </nav>
 </header>
 <main>
