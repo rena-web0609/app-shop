@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateProduct;
 use Illuminate\Http\Request;
 use App\Product;
-use Auth;
+use Api;
 
 class ProductController extends Controller
 {
@@ -21,7 +21,8 @@ class ProductController extends Controller
         //productsテーブル全カラム
         $products = Product::all();
 
-        return view('products.index',[
+        //一覧表示画面を表示
+        return view('products.index', [
             'products' => $products,
         ]);
     }
@@ -41,7 +42,7 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
 
@@ -51,7 +52,7 @@ class ProductController extends Controller
         //商品画面作成
         $product = new Product();
         //入力情報取得
-        $product -> fill($request->all());
+        $product->fill($request->all());
 
         //画像
         $filename = $request->pic->store('public/pic');
@@ -60,22 +61,23 @@ class ProductController extends Controller
         //保存
         $product->save();
 
+        //一覧表示画面へ遷移
         redirect()->route('products.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     //商品詳細画面
-    public function show(Request $request,int $product)
+    public function show(Request $request, int $product)
     {
         //idが一致する商品を取得
         $product = Product::find($product);
 
-        return view('products.show',[
+        return view('products.show', [
             'product' => $product,
         ]);
     }
@@ -83,7 +85,7 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     //商品編集画面表示
@@ -92,7 +94,7 @@ class ProductController extends Controller
         //idが一致する商品を取得
         $product = Product::find($product);
 
-        return view('products.edit',[
+        return view('products.edit', [
             'product' => $product,
         ]);
     }
@@ -100,21 +102,21 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     //商品編集
-    public function update(CreateProduct $request,int $product)
+    public function update(CreateProduct $request, int $product)
     {
         //idが一致する商品を取得
         $product = Product::find($product);
 
         //変更情報取得
-        $product -> fill($request->all());
+        $product->fill($request->all());
 
         //変更画像があれば挿入
-        if(!empty($request->pic)){
+        if (!empty($request->pic)) {
             $filename = $request->pic->store('public/pic');
             $product->pic = basename($filename);
         }
@@ -122,7 +124,7 @@ class ProductController extends Controller
         //保存
         $product->save();
 
-        return view('products.show',[
+        return view('products.show', [
             'product' => $product,
         ]);
     }
@@ -130,7 +132,7 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     //商品削除
@@ -142,6 +144,23 @@ class ProductController extends Controller
         //削除
         $product->delete();
 
+        //一覧表示画面へ遷移
         return redirect()->route('products.index');
+    }
+
+    //検索機能
+    public function getSearchByProduct(Request $request)
+    {
+        //検索した値を取得
+        $search = $request->search;
+
+        //検索した値と商品タイトルに一致するデータを取得
+        $products = Product::where('name', $search)->get();
+
+        //レスポンスをjson形式で返す
+        return response()->json([
+            'products' => $products,
+            'search' => $search,
+        ]);
     }
 }
