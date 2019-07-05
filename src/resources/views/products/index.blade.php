@@ -34,17 +34,16 @@
                 type: 'get',
                 url: '/api/v1/products',
                 dataType: 'json',
-                data: {
-                    search: $('.js-get-val-search').val()
-                },
-                success: function () {
-                    //通信成功時の処理
-                    $('.js-get-product').html('成功');
-                },
-                error: function () {
-                    //通信失敗時の処理
-                    $('.js-get-product').html('検索に一致するものはありませんでした');
-                }
+                data: {search: $(".js-get-val-search").val()}
+                }).done(function (products) {
+                    alert("成功");
+                //通信成功時の処理
+                $.each(products, function(product){
+                    $(".js-get-product").html('<div>' + product.name + '</div>');
+                })
+                }).fail(function () {
+                //通信失敗時の処理
+                $(".js-get-product").html('検索に一致するものはありませんでした');
             });
         });
     });

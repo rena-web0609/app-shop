@@ -160,7 +160,6 @@ class ProductController extends Controller
         //レスポンスをjson形式で返す
         return response()->json([
             'products' => $products,
-            'search' => $search,
         ]);
     }
 }
