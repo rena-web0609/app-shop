@@ -151,6 +151,8 @@ class ProductController extends Controller
     //検索機能
     public function getSearchByProduct(Request $request)
     {
+        header("Content-type: application/json; charset=UTF-8");
+
         //検索した値を取得
         $search = $request->search;
 
@@ -158,9 +160,6 @@ class ProductController extends Controller
         $products = Product::where('name', 'like', '%'.$search.'%')->get();
 
         //レスポンスをjson形式で返す
-        return response()->json([
-            'products' => $products,
-            'search' => $search,
-        ]);
+        echo json_encode($products);
     }
 }
