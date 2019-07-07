@@ -14,7 +14,6 @@
     </ul>
 
      <div class="js-get-product">
-         <span class="js-MsArea"></span>
          <div class="js-remove-product">
          @foreach($products as $product)
          <a id="name" href={{ route('products.show', ['product' => $product->id]) }}>{{ $product->name }}<br></a>
@@ -40,16 +39,28 @@
                 data: {search: $(".js-get-val-search").val()}
                 }).done(function (data) {
                 //通信成功時の処理
-                var len = data.length;
-                for(var i = 0; i < len; i++) {
-                    console.log(data);
-                    $('.js-remove-product').replaceWith($("<a>").attr({"id": name, "href": '{{ route('products.show', ['product' => $product->id]) }}' }).text(data[i].name));
-                    $('.js-get-product').append($("<img>").attr({"src" : '{{ asset('/storage/pic/'.$product->pic) }}'}));
-                }
+                    if(data) {
+                        //一致する商品があるとき
+                        var len = data.length;
+                        var str = $('.js-remove-product');
+
+                        for (var i = 0; i < len; i++) {
+                            str.replaceWith($("<a>").attr({
+                                "id": 'name',
+                                "href": '{{ route('products.show', ['product' => $product->id]) }}'
+                            }).text(data[i].name));
+
+                            $('#name').after($("<img>").attr({
+                                "src": '{{ asset('/storage/pic/'.$product->pic) }}'
+                            }));
+                        }
+                    }else{
+                        //一致する商品がないとき
+                            $('.js-remove-product').text('検索に一致するものはありませんでした');
+                        }
                 }).fail(function (data) {
                 //通信失敗時の処理
-                    alert(data)
-                    $(".js-MsArea").html('検索に一致するものはありませんでした');
+                console.log('error'.data);
             });
         });
     });
