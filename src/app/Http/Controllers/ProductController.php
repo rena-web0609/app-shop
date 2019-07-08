@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateProduct;
 use Illuminate\Http\Request;
 use App\Product;
+use Auth;
 use Api;
 
 class ProductController extends Controller
@@ -36,7 +37,7 @@ class ProductController extends Controller
     //商品登録画面表示
     public function create()
     {
-        return view('products/create');
+        return view('products.create');
     }
 
     /**
@@ -58,11 +59,15 @@ class ProductController extends Controller
         $filename = $request->pic->store('public/pic');
         $product->pic = basename($filename);
 
+        //'user_id'挿入
+        $id = Auth::id();
+        $product->user_id = $id;
+
         //保存
         $product->save();
 
         //一覧表示画面へ遷移
-        redirect()->route('products.index');
+        redirect()->route('home');
     }
 
     /**
@@ -72,11 +77,10 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     //商品詳細画面
-    public function show(int $product)
+    public function show(Request $request, int $productId)
     {
-
         //idが一致する商品を取得
-        $product = Product::find($product);
+        $product = Product::find($productId);
 
         return view('products.show', [
             'product' => $product,
