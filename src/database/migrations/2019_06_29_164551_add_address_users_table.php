@@ -15,6 +15,7 @@ class AddAddressUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->unsignedBigInteger('address_id');
+            $table->dropColumn('address_id');
         });
     }
 

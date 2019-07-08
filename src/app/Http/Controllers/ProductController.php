@@ -36,7 +36,7 @@ class ProductController extends Controller
     //商品登録画面表示
     public function create()
     {
-        return view('products.create');
+        return view('products/create');
     }
 
     /**
@@ -72,8 +72,9 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     //商品詳細画面
-    public function show(Request $request, int $product)
+    public function show(int $product)
     {
+
         //idが一致する商品を取得
         $product = Product::find($product);
 
