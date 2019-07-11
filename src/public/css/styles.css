@@ -1,0 +1,254 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+a{text-decoration: none;
+    color:#000000b5;}
+li{list-style: none;}
+h1, h2{color:#000000b5;
+    text-align: center;}
+
+/*
+|--------------------------------------------------------------------------
+| ヘッダー
+|--------------------------------------------------------------------------
+*/
+header{
+    height: 90px;
+    background: white;
+}
+.my-navbar{
+    position:absolute;
+}
+
+.my-navbar-brand{
+    color: #000000b5;
+    font-size: 45px;
+    line-height: 90px;
+    margin-left: 30px;
+}
+
+.formArea{
+    float: right;
+    display: inline;
+    position: relative;
+    line-height: 90px;
+    right:100px;
+}
+
+.inputText{
+    width: 250px;
+    padding:10px;
+    border: none;
+    background: #f5f5f5;
+}
+
+.fa-search{
+    font-size: 1.6em;
+    position: relative;
+    top: 6px;
+    right: 43px;
+}
+.fa-search:hover{
+    cursor: pointer;
+}
+
+/*
+|--------------------------------------------------------------------------
+| フッター
+|--------------------------------------------------------------------------
+*/
+.footer{
+    text-align: center;
+    margin-top: 100px;
+    background: #f5f5f5;
+    padding-top: 100px;
+    line-height: 100px;
+}
+footer{
+    margin-top: 500px;
+}
+
+/*
+|--------------------------------------------------------------------------
+| index.blade.php
+|--------------------------------------------------------------------------
+*/
+.index-slider{
+    width: 750px;
+    margin: auto;
+}
+.slider{
+    width:750px;
+    height:500px;
+    position: relative;
+}
+.slider-container{
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+.slider-item{
+    width: 750px;
+    height: 500px;
+    object-fit: cover;
+    text-align: center;
+    float: left;
+    margin: auto;
+}
+.nav-left{
+    position: absolute;
+    left: 10px;
+    top: 375px;
+
+}
+.fa-angle-left{
+    font-size: 2em;
+}
+.fa-angle-right{
+    font-size: 2em;
+}
+
+.nav-right{
+    position: absolute;
+    right:10px;
+    top: 375px;
+    font-size: 2em;
+}
+
+.container{
+    width: 810px;
+    margin: auto;
+    position: relative;
+}
+
+.index-img{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.index-product{
+    float: left;
+    text-align: center;
+    position: relative;
+    margin: 0 10px;
+}
+
+.product-name{
+    position: absolute;
+    width: 100%;
+    left: 0px;
+}
+
+/*
+|--------------------------------------------------------------------------
+| show.blade.php
+|--------------------------------------------------------------------------
+*/
+.nav-top{
+    background: #f5f5f5;
+    padding: 6px;
+}
+.nav-top li{
+    margin-left: 173px;
+}
+.show-product{
+    margin-top: 30px;
+}
+.show-image{
+    width: 400px;
+    height: 600px;
+    object-fit: cover;
+    position: relative;
+    margin-right: 10px;
+}
+.content-name{
+    display: inline;
+    position: absolute;
+    top: 250px;
+}
+
+.content-price{
+    display: inline;
+    position: absolute;
+    top: 300px;
+}
+
+.content-comment{
+    display: inline;
+    position: absolute;
+    top: 500px;
+    width:410px;
+}
+
+/*
+|--------------------------------------------------------------------------
+| create.blade.php
+|--------------------------------------------------------------------------
+*/
+.create-site-width{
+    margin: 0 auto;
+}
+
+.create-form{
+    margin: auto;
+    width: 648px;
+}
+
+.create-comment{
+    margin-bottom: 7px;
+    border: none;
+    background: #f5f5f5;
+    width: 100%;
+    height: 300px;
+}
+
+.create-name{
+    margin-bottom: 7px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #f5f5f5;
+}
+
+.create-price{
+    margin-bottom: 7px;
+    width: 30%;
+    padding: 10px;
+    border: none;
+    background: #f5f5f5;
+}
+input[type="submit"]{
+    float: right;
+    border: none;
+    width: 100px;
+    padding: 10px;
+    margin-right: 10px;
+    color: white;
+    background: #000000b5;
+}
+
+/*
+|--------------------------------------------------------------------------
+| home.blade.php
+|--------------------------------------------------------------------------
+*/
+.left-nav{
+    position: absolute;
+    background:  #f5f5f5;
+    left: 85px;
+    top: 200px;
+    width: 200px;
+    padding: 20px 10px;
+    text-align: center;
+}
+
+/*
+|--------------------------------------------------------------------------
+| show.blade.php
+|--------------------------------------------------------------------------
+*/
+
+
