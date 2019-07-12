@@ -29,7 +29,7 @@ class HomeController extends Controller
         return view('home');
     }
 
-    //店舗の商品一覧表示画面
+    //ログインした店舗の商品一覧表示画面
     public function show()
     {
         $user = Auth::user();
