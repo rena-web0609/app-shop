@@ -18,12 +18,34 @@
     <form method="get" action="" class="formArea">
         @csrf
         <input type="text" name="search" class="inputText js-get-val-search" placeholder="検索">
-        <i class="fas fa-search js-click"></i>
+        <input type="hidden"><i class="fas fa-search js-click"></i>
     </form>
 </header>
 <main>
     @yield('content')
-    <footer><div class="footer"><a>Copyright Rena Sasaki All Rights Reserved.</a></div></footer>
+    @if(Auth::user())
+    <ul class="left-nav">
+        <li>マイページメニュー</li>
+        <li><a href={{ route('products.create') }}>商品を登録する</a></li>
+        <li><a href={{ route('home.show') }}>店舗商品一覧</a></li>
+        <li><a href="#">お問い合わせ</a></li>
+        <li><a class="dropdown-item" href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+               document.getElementById('logout-form').submit();">
+                {{ __('ログアウト') }}
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        </li>
+    </ul>
+    @endif
+    <footer>
+        <div class="footer">
+            <a href={{ route('login') }} class="login-admin">店舗管理者の方はこちら</a>
+            <a>Copyright Rena Sasaki All Rights Reserved.</a>
+        </div>
+    </footer>
 </main>
 @yield('scripts')
 </body>
