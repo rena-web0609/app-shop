@@ -7,8 +7,6 @@
             <i class="fa fa-angle-right js-slide-next nav-right"></i>
             <ul class="slider-container">
                 <li><img class="slider-item slider-item1" src="{{ asset('image/image1.jpg') }}"></li>
-                <li><img class="slider-item slider-item2" src="{{ asset('image/image2.jpg') }}"></li>
-                <li><img class="slider-item slider-item3" src="{{ asset('image/image3.jpg') }}"></li>
             </ul>
         </div>
     </div>
@@ -26,6 +24,5 @@
          </div>
       </div>
     </div>
-
 @endsection
 

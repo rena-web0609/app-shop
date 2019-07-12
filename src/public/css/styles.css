@@ -8,6 +8,9 @@ a{text-decoration: none;
 li{list-style: none;}
 h1, h2{color:#000000b5;
     text-align: center;}
+input, textarea{
+    font-size: 15px;
+}
 
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +71,10 @@ header{
 }
 footer{
     margin-top: 500px;
+}
+
+.login-admin{
+    display: block;
 }
 
 /*
@@ -179,9 +186,28 @@ footer{
 .content-comment{
     display: inline;
     position: absolute;
-    top: 500px;
+    top: 400px;
     width:410px;
 }
+
+.nav-bottom{
+    float: right;
+    margin: 50px;
+    text-align: center;
+}
+
+.show-edit{
+    background: #f189aaed;
+    padding: 10px;
+    width: 100px;
+}
+
+.show-delete{
+    background: rgba(14, 155, 255, 0.51);
+    padding: 10px;
+    width: 100px;
+}
+
 
 /*
 |--------------------------------------------------------------------------
@@ -230,6 +256,12 @@ input[type="submit"]{
     background: #000000b5;
 }
 
+.alert{
+    color: red;
+    width: 648px;
+    margin: auto;
+}
+
 /*
 |--------------------------------------------------------------------------
 | home.blade.php
@@ -247,8 +279,62 @@ input[type="submit"]{
 
 /*
 |--------------------------------------------------------------------------
-| show.blade.php
+| login.blade.php
 |--------------------------------------------------------------------------
 */
+.login-site-width{
+    margin: 0 auto;
+    width: 648px;
+}
 
+input[type="email"]{
+    margin-bottom: 7px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #f5f5f5;
+}
+
+input[type="password"]{
+    margin-bottom: 7px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #f5f5f5;
+}
+
+button[type="submit"]{
+    float: right;
+    border: none;
+    width: 100px;
+    padding: 10px;
+    margin-right: 10px;
+    color: white;
+    background: #000000b5;
+}
+
+/*
+|--------------------------------------------------------------------------
+| home.blade.php
+|--------------------------------------------------------------------------
+*/
+.home-icon{
+    margin: auto;
+    width: 680px;
+    height: 400px;
+    background: #cddc398f;
+}
+.home-icon,p{
+    text-align: center;
+}
+/*
+|--------------------------------------------------------------------------
+| login.blade.php
+|--------------------------------------------------------------------------
+*/
+/*
+|--------------------------------------------------------------------------
+| login.blade.php
+|--------------------------------------------------------------------------
+*/
 

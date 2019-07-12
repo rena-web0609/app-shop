@@ -1,17 +1,17 @@
 @extends('layout')
 
 @section('content')
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
     <div class="container">
         <div class="create-site-width">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         <h1>商品登録フォーム</h1>
         <form class="create-form" action="{{ route('products.store') }}" method="post" enctype="multipart/form-data">
             @csrf
@@ -23,5 +23,6 @@
             <input type="submit" value="登録">
         </form>
         </div>
+    </div>
     </div>
 @endsection
