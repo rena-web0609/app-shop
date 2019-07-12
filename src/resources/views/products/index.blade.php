@@ -1,15 +1,13 @@
 @extends('layout')
 
 @section('content')
-    <div class="index-slider">
-        <div class="slider">
-            <i class="fa fa-angle-left js-slide-prev nav-left"></i>
-            <i class="fa fa-angle-right js-slide-next nav-right"></i>
-            <ul class="slider-container">
-                <li><img class="slider-item slider-item1" src="{{ asset('image/image1.jpg') }}"></li>
-            </ul>
-        </div>
-    </div>
+    <ul>
+        <li><a href={{ route('users.list') }}>店舗一覧</a></li>
+        <li><a href="#">ALL</a></li>
+        <li><a href="#">WOMEN</a></li>
+        <li><a href="#">MAN</a></li>
+        <li><a href="#">KIDS</a></li>
+    </ul>
 
     <div class="container">
         <h1>商品一覧</h1>

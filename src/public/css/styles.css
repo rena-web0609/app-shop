@@ -82,6 +82,12 @@ footer{
 | index.blade.php
 |--------------------------------------------------------------------------
 */
+.menu{
+
+}
+.menu li{
+    float: left;
+}
 .index-slider{
     width: 750px;
     margin: auto;
