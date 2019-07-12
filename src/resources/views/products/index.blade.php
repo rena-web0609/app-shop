@@ -1,56 +1,31 @@
 @extends('layout')
 
 @section('content')
-    <form method="get" action="" class="formArea">
-        @csrf
-        <div id="ajaxArea">
-            <input type="text" name="search" class="inputText js-get-val-search">
-            <input type="submit" value="検索" class="btn">
+    <div class="index-slider">
+        <div class="slider">
+            <i class="fa fa-angle-left js-slide-prev nav-left"></i>
+            <i class="fa fa-angle-right js-slide-next nav-right"></i>
+            <ul class="slider-container">
+                <li><img class="slider-item slider-item1" src="{{ asset('image/image1.jpg') }}"></li>
+                <li><img class="slider-item slider-item2" src="{{ asset('image/image2.jpg') }}"></li>
+                <li><img class="slider-item slider-item3" src="{{ asset('image/image3.jpg') }}"></li>
+            </ul>
         </div>
-    </form>
+    </div>
 
-    <ul>
-        <li><a href={{ route('products.create') }}>商品登録</a></li>
-    </ul>
-
-     <div class="js-get-product">
-         <span class="js-MsArea"></span>
+    <div class="container">
+        <h1>商品一覧</h1>
+    <div class="products js-get-product">
          <div class="js-remove-product">
-         @foreach($products as $product)
-         <a id="name" href={{ route('products.show', ['product' => $product->id]) }}>{{ $product->name }}<br></a>
-         <img src="{{ asset('/storage/pic/'.$product->pic) }}">
-         @endforeach
+             @foreach($products as $product)
+             <div class="index-product">
+                 <img class="index-img" src="{{ asset('/storage/pic/'.$product->pic) }}">
+                 <a id="name" class="product-name" href={{ route('products.show', ['product' => $product->id]) }}>{{ $product->name }}<br></a>
              </div>
+             @endforeach
+         </div>
       </div>
+    </div>
 
 @endsection
-<script
-    src="https://code.jquery.com/jquery-3.4.1.js"
-    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-    crossorigin="anonymous"></script>
-<script>
-    $(function() {
-        $('.formArea').on('submit', function (e) {
-            e.preventDefault();
 
-            $.ajax({
-                type: 'get',
-                url: '/api/v1/products',
-                dataType: 'json',
-                data: {search: $(".js-get-val-search").val()}
-                }).done(function (data) {
-                //通信成功時の処理
-                var len = data.length;
-                for(var i = 0; i < len; i++) {
-                    console.log(data);
-                    $('.js-remove-product').replaceWith($("<a>").attr({"id": name, "href": '{{ route('products.show', ['product' => $product->id]) }}' }).text(data[i].name));
-                    $('.js-get-product').append($("<img>").attr({"src" : '{{ asset('/storage/pic/'.$product->pic) }}'}));
-                }
-                }).fail(function (data) {
-                //通信失敗時の処理
-                    alert(data)
-                    $(".js-MsArea").html('検索に一致するものはありませんでした');
-            });
-        });
-    });
-</script>
