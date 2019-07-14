@@ -56,6 +56,18 @@ header{
 .fa-search:hover{
     cursor: pointer;
 }
+.index-category{
+    background: #f5f5f5;
+    padding: 20px;
+    position: absolute;
+    top: 90px;
+    width: 100%;
+}
+
+.index-category li{
+    float: left;
+    margin: 0 114px;
+}
 
 /*
 |--------------------------------------------------------------------------
@@ -82,55 +94,10 @@ footer{
 | index.blade.php
 |--------------------------------------------------------------------------
 */
-.menu{
 
-}
-.menu li{
-    float: left;
-}
-.index-slider{
-    width: 750px;
-    margin: auto;
-}
-.slider{
-    width:750px;
-    height:500px;
-    position: relative;
-}
-.slider-container{
-    padding: 0;
-    margin: 0;
-    position: relative;
-}
-.slider-item{
-    width: 750px;
-    height: 500px;
-    object-fit: cover;
-    text-align: center;
-    float: left;
-    margin: auto;
-}
-.nav-left{
-    position: absolute;
-    left: 10px;
-    top: 375px;
-
-}
-.fa-angle-left{
-    font-size: 2em;
-}
-.fa-angle-right{
-    font-size: 2em;
-}
-
-.nav-right{
-    position: absolute;
-    right:10px;
-    top: 375px;
-    font-size: 2em;
-}
 
 .container{
+    top: 80px;
     width: 810px;
     margin: auto;
     position: relative;

@@ -20,6 +20,14 @@
         <input type="text" name="search" class="inputText js-get-val-search" placeholder="検索">
         <input type="hidden"><i class="fas fa-search js-click"></i>
     </form>
+
+    <ul class="index-category">
+        <li><a href={{ route('users.list') }}>店舗一覧</a></li>
+        <li><a href={{ route('products.index') }}>ALL</a></li>
+        <li><a href={{ route('products.category', ['sex' => '1']) }}>WOMEN</a></li>
+        <li><a href={{ route('products.category', ['sex' => '2']) }}>MAN</a></li>
+        <li><a href={{ route('products.category', ['sex' => '3']) }}>KIDS</a></li>
+    </ul>
 </header>
 <main>
     @yield('content')
