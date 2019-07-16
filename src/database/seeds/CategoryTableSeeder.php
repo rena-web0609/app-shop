@@ -12,7 +12,7 @@ class CategoryTableSeeder extends Seeder
      */
     public function run()
     {
-        $categories = ['トップス', 'ジャケット・アウター', 'パンツ', 'スカート', 'ワンピース', 'バッグ', 'シューズ', 'アクセサリ', 'その他'];
+        $categories = ['WOMAN', 'MAN', 'KIDS'];
 
         foreach ($categories as $category) {
             DB::table('categories')->insert([

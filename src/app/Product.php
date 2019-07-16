@@ -8,7 +8,7 @@ use User;
 class Product extends Model
 {
     protected $fillable = [
-        'name', 'comment', 'price', 'pic'
+        'name', 'comment', 'price', 'pic', 'category_id',
     ];
 
     protected $hidden = [
@@ -18,5 +18,10 @@ class Product extends Model
     public function user()
     {
         return $this->belongsTo('App\User', 'id', 'user_id');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
     }
 }

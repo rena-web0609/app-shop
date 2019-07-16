@@ -34,3 +34,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/products', 'ProductController@index')->name('products.index');
 //商品詳細表示画面
     Route::get('/products/{product}', 'ProductController@show')->name('products.show');
+//店舗一覧表示画面
+    Route::get('/shops', 'UserController@list')->name('users.list');
+    //店舗商品表示画面
+    Route::get('/shops/{user}', 'UserController@index')->name('users.index');
+

@@ -17,8 +17,11 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
-//検索機能
+
 Route::group(['prefix' => 'v1'], function() {
+    //検索機能
     Route::get('/products', 'ProductController@getSearchByProduct');
+    //性別検索
+    Route::get('/products/{sex}', 'CategoryController@list')->name('products.category');
 });
 

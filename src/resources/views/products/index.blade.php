@@ -1,15 +1,6 @@
 @extends('layout')
 
 @section('content')
-    <div class="index-slider">
-        <div class="slider">
-            <i class="fa fa-angle-left js-slide-prev nav-left"></i>
-            <i class="fa fa-angle-right js-slide-next nav-right"></i>
-            <ul class="slider-container">
-                <li><img class="slider-item slider-item1" src="{{ asset('image/image1.jpg') }}"></li>
-            </ul>
-        </div>
-    </div>
 
     <div class="container">
         <h1>商品一覧</h1>

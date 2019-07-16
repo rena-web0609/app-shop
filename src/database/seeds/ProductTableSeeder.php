@@ -13,8 +13,19 @@ class ProductTableSeeder extends Seeder
     public function run()
     {
         DB::table('products')->insert([
-            'name' => 'ドットノースリプルオーバー',
-            'comment' => '去年の夏に大人気で完売していた商品が数量限定で待望の再入荷！！今季トレンドのワッフル素材にドット柄が登場。スタイルが良く見えるフレンチスリーブのTシャツです。首つまりのデザインも今年顔の１枚。春はカーデやシャツのインナー、夏は１枚でメインに着てもさらっと着て頂けます。',
+            'name' => 'ニット',
+            'comment' => 'シンプルなニットです。',
+            'price' => '3780',
+            'pic' => 'a',
+            'user_id' => '1',
+            'category_id' => '0',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('products')->insert([
+            'name' => 'Yシャツ',
+            'comment' => 'シンプルなYシャツです。',
             'price' => '3780',
             'pic' => 'a',
             'user_id' => '1',
@@ -24,8 +35,8 @@ class ProductTableSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'name' => 'ドットノースリプルオーバー',
-            'comment' => '去年の夏に大人気で完売していた商品が数量限定で待望の再入荷！！今季トレンドのワッフル素材にドット柄が登場。スタイルが良く見えるフレンチスリーブのTシャツです。首つまりのデザインも今年顔の１枚。春はカーデやシャツのインナー、夏は１枚でメインに着てもさらっと着て頂けます。',
+            'name' => 'スニーカー',
+            'comment' => '子供用のスニーカーです。',
             'price' => '3780',
             'pic' => 'a',
             'user_id' => '1',
@@ -34,13 +45,25 @@ class ProductTableSeeder extends Seeder
             'updated_at' => Carbon::now(),
         ]);
 
+
         DB::table('products')->insert([
-            'name' => 'ドットノースリプルオーバー',
-            'comment' => '去年の夏に大人気で完売していた商品が数量限定で待望の再入荷！！今季トレンドのワッフル素材にドット柄が登場。スタイルが良く見えるフレンチスリーブのTシャツです。首つまりのデザインも今年顔の１枚。春はカーデやシャツのインナー、夏は１枚でメインに着てもさらっと着て頂けます。',
+            'name' => 'ノースリプルオーバー',
+            'comment' => 'スタイルが良く見えるフレンチスリーブのTシャツです。首つまりのデザインも今年顔の１枚。',
             'price' => '3780',
             'pic' => 'a',
-            'user_id' => '1',
-            'category_id' => '3',
+            'user_id' => '2',
+            'category_id' => '0',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('products')->insert([
+            'name' => 'アンゴラニット',
+            'comment' => 'ふんわりとしたニットです。',
+            'price' => '3780',
+            'pic' => 'a',
+            'user_id' => '3',
+            'category_id' => '1',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
