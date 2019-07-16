@@ -24,9 +24,9 @@
     <ul class="index-category">
         <li><a href={{ route('users.list') }}>店舗一覧</a></li>
         <li><a href={{ route('products.index') }}>ALL</a></li>
-        <li><a href={{ route('products.category', ['sex' => '1']) }}>WOMEN</a></li>
-        <li><a href={{ route('products.category', ['sex' => '2']) }}>MAN</a></li>
-        <li><a href={{ route('products.category', ['sex' => '3']) }}>KIDS</a></li>
+        <li><a href={{ route('products.category', ['sex' => '0']) }}>WOMEN</a></li>
+        <li><a href={{ route('products.category', ['sex' => '1']) }}>MAN</a></li>
+        <li><a href={{ route('products.category', ['sex' => '2']) }}>KIDS</a></li>
     </ul>
 </header>
 <main>
@@ -55,6 +55,5 @@
         </div>
     </footer>
 </main>
-@yield('scripts')
 </body>
 </html>

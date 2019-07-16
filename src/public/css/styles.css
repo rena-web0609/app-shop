@@ -95,12 +95,12 @@ footer{
 |--------------------------------------------------------------------------
 */
 
-
 .container{
     top: 80px;
     width: 810px;
     margin: auto;
     position: relative;
+    height: 60%;
 }
 
 .index-img{
@@ -113,7 +113,7 @@ footer{
     float: left;
     text-align: center;
     position: relative;
-    margin: 0 10px;
+    margin: 20px 10px;
 }
 
 .product-name{
@@ -300,14 +300,20 @@ button[type="submit"]{
 .home-icon,p{
     text-align: center;
 }
+
 /*
 |--------------------------------------------------------------------------
-| login.blade.php
-|--------------------------------------------------------------------------
-*/
-/*
-|--------------------------------------------------------------------------
-| login.blade.php
+| list.blade.php
 |--------------------------------------------------------------------------
 */
 
+.shops{
+    width: 30%;
+    text-align: center;
+    margin: auto;
+    font-size: 20px;
+}
+
+.shop-name{
+    margin-bottom: 4px;
+}

@@ -1,13 +1,6 @@
 @extends('layout')
 
 @section('content')
-    <ul class="menu">
-        <li><a href={{ route('users.list') }}>店舗一覧</a></li>
-        <li><a href={{ route('products.index') }}>ALL</a></li>
-        <li><a href="#">WOMEN</a></li>
-        <li><a href="#">MAN</a></li>
-        <li><a href="#">KIDS</a></li>
-    </ul>
 
     <div class="container">
         <h1>商品一覧</h1>

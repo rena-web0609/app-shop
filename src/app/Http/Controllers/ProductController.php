@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Http\Requests\CreateProduct;
 use Illuminate\Http\Request;
 use App\Product;
@@ -37,7 +38,11 @@ class ProductController extends Controller
     //商品登録画面表示
     public function create()
     {
-        return view('products.create');
+        $categoryId = Category::select('id', 'name')->get()->pluck('name');
+
+        return view('products.create',[
+            'categoryId' => $categoryId,
+        ]);
     }
 
     /**
@@ -66,8 +71,10 @@ class ProductController extends Controller
         //保存
         $product->save();
 
-        //一覧表示画面へ遷移
-        redirect()->route('home');
+        //商品詳細画面へ遷移
+        return view('products.show', [
+            'product' => $product,
+        ]);
     }
 
     /**
