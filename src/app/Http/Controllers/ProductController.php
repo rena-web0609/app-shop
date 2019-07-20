@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\Product;
 use Auth;
 use Api;
-use Bbs;
 
 class ProductController extends Controller
 {
@@ -54,6 +53,10 @@ class ProductController extends Controller
      */
 
     //商品登録
+    /**
+     * @param CreateProduct|Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function store(CreateProduct $request)
     {
         //商品画面作成
@@ -67,7 +70,7 @@ class ProductController extends Controller
 
         //heroku
         $pic = base64_encode(file_get_contents($request->pic->getRealPath()));
-        Bbs::insert([
+        DB::table('products')->insert([
             "pic" => $pic
         ]);
 
@@ -126,6 +129,11 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     //商品編集
+    /**
+     * @param CreateProduct|Request $request
+     * @param int $product
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function update(CreateProduct $request, int $product)
     {
         //idが一致する商品を取得
@@ -142,7 +150,7 @@ class ProductController extends Controller
 
             //heroku
             $pic = base64_encode(file_get_contents($request->pic->getRealPath()));
-            Bbs::insert([
+            DB::table('products')->insert([
                 "pic" => $pic
             ]);
         }
