@@ -60,9 +60,15 @@ class ProductController extends Controller
         //入力情報取得
         $product->fill($request->all());
 
-        //画像
-        $filename = $request->pic->store('public/pic');
-        $product->pic = basename($filename);
+        //画像(local)
+        //$filename = $request->pic->store('public/pic');
+        //$product->pic = basename($filename);
+
+        //heroku
+        $pic = base64_encode(file_get_contents($request->pic->getRealPath()));
+        Bbs::insert([
+            "pic" => $pic
+        ]);
 
         //'user_id'挿入
         $id = Auth::id();
@@ -129,8 +135,15 @@ class ProductController extends Controller
 
         //変更画像があれば挿入
         if (!empty($request->pic)) {
-            $filename = $request->pic->store('public/pic');
-            $product->pic = basename($filename);
+            //lolal
+            //$filename = $request->pic->store('public/pic');
+            //$product->pic = basename($filename);
+
+            //heroku
+            $pic = base64_encode(file_get_contents($request->pic->getRealPath()));
+            Bbs::insert([
+                "pic" => $pic
+            ]);
         }
 
         //保存

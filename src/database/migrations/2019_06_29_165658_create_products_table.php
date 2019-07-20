@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->text('comment');
             $table->integer('price');
             $table->unsignedBigInteger('category_id');
-            $table->string('pic');
+            $table->text('pic');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
