@@ -19,9 +19,9 @@ class CreateProductsTable extends Migration
             $table->string('name')->nullable();
             $table->text('comment')->nullable();
             $table->integer('price')->nullable();
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->text('pic')->nullable();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
         });
 
