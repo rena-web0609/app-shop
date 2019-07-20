@@ -17,10 +17,10 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->nullable();
-            $table->text('comment');
-            $table->integer('price');
+            $table->text('comment')->nullable();
+            $table->integer('price')->nullable();
             $table->unsignedBigInteger('category_id');
-            $table->text('pic');
+            $table->text('pic')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
