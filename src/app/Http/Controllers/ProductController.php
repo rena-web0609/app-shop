@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use Auth;
 use Api;
+use App\Http\Controllers\DB;
 
 class ProductController extends Controller
 {
