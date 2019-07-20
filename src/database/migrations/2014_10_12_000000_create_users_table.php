@@ -24,20 +24,23 @@ class CreateUsersTable extends Migration
         });
 
         DB::table('users')->insert([
+            'id' => '1',
             'name' => '東京',
             'email' => 'tokyo@a.com',
             'password' => bcrypt('tokyosecret'),
         ]);
 
         DB::table('users')->insert([
+            'id' => '2',
             'name' => '大阪',
             'email' => 'osaka@a.com',
             'password' => bcrypt('osakasecret'),
         ]);
 
         DB::table('users')->insert([
+            'id' => '3',
             'name' => '名古屋',
-            'email' => 'nagoyaa@a.com',
+            'email' => 'nagoya@a.com',
             'password' => bcrypt('nagoyasecret'),
         ]);
     }
