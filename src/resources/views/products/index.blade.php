@@ -9,7 +9,6 @@
              @foreach($products as $product)
              <div class="index-product">
                  <img class="index-img" src="data:pic/jpeg;base64, {{ $product->pic }}">
-                 <img class="index-img" src="data:image/jpeg;base64, {{ $product->pic }}">
                  <a id="name" class="product-name" href={{ route('products.show', ['product' => $product->id]) }}>{{ $product->name }}<br></a>
              </div>
              @endforeach
