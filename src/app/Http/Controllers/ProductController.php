@@ -151,7 +151,7 @@ class ProductController extends Controller
 
             //heroku
             $pic = base64_encode(file_get_contents($request->pic->getRealPath()));
-            DB::table('products')->insert([
+            DB::table('products')->update([
                 "pic" => $pic
             ]);
         }
