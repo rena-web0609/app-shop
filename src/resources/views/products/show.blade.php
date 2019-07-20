@@ -5,7 +5,7 @@
         <li><a href={{ route('products.index') }}> > 戻る</a></li>
     </ul>
     <div class="container show-product">
-        <img class="show-image" src="data:pic/jpeg;base64, {{ $product->pic }}">
+        <img class="show-image" src="data:image/jpeg;base64, {{ $product->pic }}">
         <h2 class="content-name">{{ $product->name }}</h2>
         <p class="content-price">¥ {{ $product->price }}（税込み）</p>
         <p class="content-comment">{{ $product->comment }}</p>
