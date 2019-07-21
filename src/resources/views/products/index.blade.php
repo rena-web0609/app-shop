@@ -45,9 +45,9 @@
                     console.log(data);
                     $(`.js-remove-product`).replaceWith($("<a>").attr({
                            "id": name,
-                           "href": `{{ route(`products.show`, ['product' => $product->id]) }}`
+                           "href": `#`
                 }).text(data[i].name));
-                    $(`.js-get-product`).append($("<img>").attr({"src": `data:image/jpeg;base64, {{ $product->pic }}`}));
+                    $(`.js-get-product`).append($("<img>");
                 }
             }).fail(function (data) {
                 //通信失敗時の処理
