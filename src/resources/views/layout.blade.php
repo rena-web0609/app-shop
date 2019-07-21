@@ -14,7 +14,6 @@
     <nav class="my-navbar">
         <a class="my-navbar-brand" href={{ route('products.index') }}>SHOP</a>
     </nav>
-    <span class="js-MsArea"></span>
 
     <ul class="index-category">
         <li><a href={{ route('users.list') }}>店舗一覧</a></li>
