@@ -15,11 +15,6 @@
         <a class="my-navbar-brand" href={{ route('products.index') }}>SHOP</a>
     </nav>
     <span class="js-MsArea"></span>
-    <form method="get" action="" class="formArea">
-        @csrf
-        <input type="text" name="search" class="inputText js-get-val-search" placeholder="検索">
-        <input type="hidden"><i class="fas fa-search js-click"></i>
-    </form>
 
     <ul class="index-category">
         <li><a href={{ route('users.list') }}>店舗一覧</a></li>
