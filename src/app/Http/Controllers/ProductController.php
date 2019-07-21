@@ -71,13 +71,9 @@ class ProductController extends Controller
         //$product->pic = basename($filename);
 
         //heroku
-        $pic = base64_encode(file_get_contents($request->pic->getRealPath()));
+        base64_encode(file_get_contents($request->pic->getRealPath()));
         $product->pic;
-        DB::table('products')
-            ->where('id', $product)
-            ->insert([
-            "pic" => $pic
-        ]);
+
 
         //'user_id'挿入
         $id = Auth::id();
@@ -154,13 +150,8 @@ class ProductController extends Controller
             //$product->pic = basename($filename);
 
             //heroku
-            $pic = base64_encode(file_get_contents($request->pic->getRealPath()));
+            base64_encode(file_get_contents($request->pic->getRealPath()));
             $product->pic;
-            DB::table('products')
-                ->where('id', $product)
-                ->update([
-                "pic" => $pic
-            ]);
         }
 
         //保存
