@@ -39,6 +39,7 @@ class ProductController extends Controller
     //商品登録画面表示
     public function create()
     {
+        //category(WOMAN, MAN, KIDS)
         $categoryId = Category::select('id', 'name')->get()->pluck('name');
 
         return view('products.create',[
@@ -72,7 +73,9 @@ class ProductController extends Controller
         //heroku
         $pic = base64_encode(file_get_contents($request->pic->getRealPath()));
         $product->pic;
-        DB::table('products')->insert([
+        DB::table('products')
+            ->where('id', $product)
+            ->insert([
             "pic" => $pic
         ]);
 
