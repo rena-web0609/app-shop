@@ -20,7 +20,8 @@ class UserController extends Controller
     //店舗商品一覧
     public function index(Request $request, int $user)
     {
-        $products = Product::find($user)->get();
+        //user_idが一致する店舗データを表示
+        $products = Product::where('user_id', $user)->get();
 
         return view('users.index',[
             'products' => $products,

@@ -183,7 +183,7 @@ class ProductController extends Controller
     //検索機能
     public function getSearchByProduct(Request $request)
     {
-        header("Content-type: application/json; charset=UTF-8");
+        //header("Content-type: application/json; charset=UTF-8");
 
         //検索した値を取得
         $search = $request->search;
