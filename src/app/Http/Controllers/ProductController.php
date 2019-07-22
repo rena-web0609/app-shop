@@ -189,7 +189,7 @@ class ProductController extends Controller
         $search = $request->search;
 
         //検索した値と商品タイトルに一致するデータを取得
-        $products = Product::where('name', 'like', '%'.$search.'%')->get();
+        $products = Product::where('name', 'like', '%'.$search)->get();
 
         //レスポンスをjson形式で返す
         echo json_encode($products);

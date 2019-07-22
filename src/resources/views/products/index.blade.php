@@ -10,14 +10,12 @@
         <h1>商品一覧</h1>
         <span class="js-MsArea"></span>
     <div class="products js-get-product">
-         <div class="js-remove-product">
              @foreach($products as $product)
              <div class="index-product">
                  <img class="index-img" src="{{ asset('/storage/pic/'.$product->pic) }}">
                  <a id="name" class="product-name" href={{ route('products.show', ['product' => $product->id]) }}>{{ $product->name }}<br></a>
              </div>
              @endforeach
-         </div>
       </div>
     </div>
 @endsection
@@ -25,7 +23,7 @@
     src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 <script>
     $(function() {
-        $('.formArea').click('submit', function (e) {
+        $('.formArea').on('submit', function (e) {
             e.preventDefault();
 
             $.ajax({
@@ -38,19 +36,28 @@
         }).done(function (data) {
                 //通信成功時の処理
                 //alert(data);
-                $(".js-MsArea").html('検索に一致する商品がありました');
+                $(".index-product").empty();
+                $(".index-product").remove();
                 var len = data.length;
-                for (var i = 0; i < len; i++) {
-                    $('.js-remove-product').remove();
-                    $('.js-get-product').append($("<a>").attr({
-                        "class" : 'product-name',
-                        "id": 'name',
-                        "href": '{{ route('products.show', ['product' => $product->id]) }}'
-                    }));
-                    $('.js-get-product').append($("<img>").attr({
-                        "src": '{{ asset('/storage/pic/'.$product->pic) }}',
-                        "class": 'index-img',
-                    }));
+                if(len === 0){
+                    $(".js-MsArea").html('検索に一致する商品がありませんでした');
+                }else{
+                    console.log(data);
+                    $(".js-MsArea").html('検索に一致する商品がありました');
+                    for (var i = 0; i < len; i++) {
+                        $(".js-get-product").append($('<div class="index-product">'));
+                        $(".index-product").append($("<img>"));
+                        $("img").attr({
+                            "src": '/storage/pic/'+ data[i].pic,
+                            "class": 'index-img',
+                        });
+                        $(".index-img").append($("<a class='product-name'>"));
+                        $(".product-name").text(data[i].name);
+                        $("a").attr({
+                            "id": 'name',
+                            "href": '{{ route('products.show', ['product' => $product->id]) }}',
+                        });
+                    }
                 }
         }).fail(function (data) {
                 //通信失敗時の処理
