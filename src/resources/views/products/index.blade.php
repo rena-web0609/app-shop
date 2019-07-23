@@ -9,14 +9,14 @@
         </form>
         <h1>商品一覧</h1>
         <span class="js-MsArea"></span>
-    <div class="products js-get-product">
+        <div class="products js-get-product">
              @foreach($products as $product)
              <div class="index-product">
                  <img class="index-img" src="{{ asset('/storage/pic/'.$product->pic) }}">
                  <a id="name" class="product-name" href={{ route('products.show', ['product' => $product->id]) }}>{{ $product->name }}<br></a>
              </div>
              @endforeach
-      </div>
+        </div>
     </div>
 @endsection
 <script
@@ -48,20 +48,21 @@
                         var id = data[i].id;
                         var pic = data[i].pic;
                         var name = data[i].name;
+                        var image = $('<img class="index-img" id= "product' + i + '">');
+                        var a = $('<a class="product-name" id= "product' + i + '">');
 
-                        $(".js-get-product").append($("<div class='index-product'>").append("<img>").append("<a class='product-name'>"));
-
-                        $("img").attr({
+                        image.attr({
                             "src": '/storage/pic/'+ pic,
                             "class": 'index-img',
                         });
 
-                        $(".product-name").text(name);
-                        $("a").attr({
+                        a.text(name).attr({
                             "id": 'name',
                             "href": '/products/'+ id,
                             "style": 'bottom: -25px',
                         });
+                        
+                        $(".js-get-product").append($("<div class='index-product'>").append(image).append(a));
                     }
                 }
         }).fail(function (data) {
