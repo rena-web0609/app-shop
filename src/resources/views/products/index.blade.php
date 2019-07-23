@@ -45,17 +45,22 @@
                     console.log(data);
                     $(".js-MsArea").html('検索に一致する商品がありました');
                     for (var i = 0; i < len; i++) {
-                        $(".js-get-product").append($('<div class="index-product">'));
-                        $(".index-product").append($("<img>"));
+                        var id = data[i].id;
+                        var pic = data[i].pic;
+                        var name = data[i].name;
+
+                        $(".js-get-product").append($("<div class='index-product'>").append("<img>").append("<a class='product-name'>"));
+
                         $("img").attr({
-                            "src": '/storage/pic/'+ data[i].pic,
+                            "src": '/storage/pic/'+ pic,
                             "class": 'index-img',
                         });
-                        $(".index-img").append($("<a class='product-name'>"));
-                        $(".product-name").text(data[i].name);
+
+                        $(".product-name").text(name);
                         $("a").attr({
                             "id": 'name',
-                            "href": '{{ route('products.show', ['product' => $product->id]) }}',
+                            "href": '/products/'+ id,
+                            "style": 'bottom: -25px',
                         });
                     }
                 }

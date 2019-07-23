@@ -10,7 +10,7 @@ Auth::routes(['register' => false]);
 Route::group(['middleware' => 'auth'], function() {
 //店舗管理画面表示
     Route::get('/home', 'HomeController@index')->name('home');
-    //店舗商品一覧表示
+//店舗一覧商品画面表示
     Route::get('/home/index', 'HomeController@show')->name('home.show');
 //商品登録画面表示
     Route::get('/products/create', 'ProductController@create')->name('products.create');
