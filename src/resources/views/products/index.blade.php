@@ -61,7 +61,7 @@
                             "href": '/products/'+ id,
                             "style": 'bottom: -25px',
                         });
-                        
+
                         $(".js-get-product").append($("<div class='index-product'>").append(image).append(a));
                     }
                 }

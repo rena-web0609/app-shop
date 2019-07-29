@@ -62,14 +62,17 @@ class ProductController extends Controller
     {
         //商品画面作成
         $product = new Product();
-        //入力情報取得
-        $product->fill($request->all());
+
+        //入力情報取得(local)
+        //$product->fill($request->all());
 
         //画像(local)
         //$filename = $request->pic->store('public/pic');
         //$product->pic = basename($filename);
 
-        //heroku
+        //入力情報（heroku）
+        $product = $request->only(['id','name', 'comment', 'price', 'category_id', 'pic', 'user_id']);
+
         base64_encode(file_get_contents($request->pic->getRealPath()));
         $product->pic;
 
