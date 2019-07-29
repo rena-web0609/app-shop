@@ -5,8 +5,12 @@
       <sourceFolder url="file://$MODULE_DIR$/src/app" isTestSource="false" packagePrefix="App\" />
       <sourceFolder url="file://$MODULE_DIR$/src/tests" isTestSource="true" packagePrefix="Tests\" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/beyondcode/laravel-dump-server" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/cloudinary/cloudinary_php" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/dnoegel/php-xdg-base-dir" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/doctrine/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/doctrine/dbal" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/doctrine/event-manager" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/doctrine/inflector" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/doctrine/instantiator" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/doctrine/lexer" />
@@ -19,6 +23,7 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/hamcrest/hamcrest-php" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/jakub-onderka/php-console-color" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/jakub-onderka/php-console-highlighter" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/jrm2k6/cloudder" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/laravel/framework" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/laravel/tinker" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/laravelcollective/html" />

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use Auth;
 use Api;
+use JD\Cloudder\Facades\Cloudder;
 
 class ProductController extends Controller
 {
@@ -63,23 +64,27 @@ class ProductController extends Controller
         //商品画面作成
         $product = new Product();
 
-        //入力情報取得(local)
-        //$product->fill($request->all());
+        //'user_id'挿入
+        $id = Auth::id();
+        $product->user_id = $id;
+
+        //入力情報（heroku）
+        $product = $request->all();
 
         //画像(local)
         //$filename = $request->pic->store('public/pic');
         //$product->pic = basename($filename);
 
-        //入力情報（heroku）
-        $product = $request->only(['id','name', 'comment', 'price', 'category_id', 'pic', 'user_id']);
-
-        base64_encode(file_get_contents($request->pic->getRealPath()));
-        $product->pic;
-
-
-        //'user_id'挿入
-        $id = Auth::id();
-        $product->user_id = $id;
+        //画像(heroku)
+        if($pic = $request->file('pic')){
+            $pic_name = $pic->getRealPath();
+            //Cloudinaryへアップロード
+            Cloudder::upload($pic_name, null);
+            //直前にアップロードした画像のユニークIDを取得
+            $publicId = Cloudder::getPublicId();
+            //URLを生成
+            $picUrl = Cloudder::show($publicId);
+        }
 
         //保存
         $product->save();
@@ -146,14 +151,20 @@ class ProductController extends Controller
         $product->fill($request->all());
 
         //変更画像があれば挿入
-        if (!empty($request->pic)) {
+        //if (!empty($request->pic)) {
             //lolal
             //$filename = $request->pic->store('public/pic');
-            //$product->pic = basename($filename);
+            //$product->pic = basename($filename);}
 
-            //heroku
-            base64_encode(file_get_contents($request->pic->getRealPath()));
-            $product->pic;
+        //画像変更(heroku)
+        if($pic = $request->file('pic')){
+            $pic_name = $pic->getRealPath();
+            //Cloudinaryへアップロード
+            Cloudder::upload($pic_name, null);
+            //直前にアップロードした画像のユニークIDを取得
+            $publicId = Cloudder::getPublicId();
+            //URLを生成
+            $picUrl = Cloudder::show($publicId);
         }
 
         //保存
