@@ -3,6 +3,7 @@
 /public/storage
 /storage/*.key
 /vendor
+/config/cloudinary.yml
 .env
 .phpunit.result.cache
 Homestead.json
