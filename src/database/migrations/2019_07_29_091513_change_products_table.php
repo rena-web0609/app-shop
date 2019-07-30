@@ -14,7 +14,7 @@ class ChangeProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->renameColumn('pic', 'pic_url')->change();
+            $table->longText('pic')->change();
         });
     }
 
@@ -26,7 +26,7 @@ class ChangeProductsTable extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->string('pic_url')->change();
+            $table->string('pic')->change();
         });
     }
 }

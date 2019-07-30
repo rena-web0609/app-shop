@@ -8,7 +8,7 @@
                 @foreach($products as $product)
 
                     <div class="index-product">
-                        <img class="index-image" src="{{ asset('/storage/pic/'.$product->pic) }}">
+                        <img class="index-image" src="{{ asset($product->pic) }}">
                         <a id="name" class="product-name" href={{ route('products.show', ['product' => $product->id]) }}>{{ $product->name }}<br></a>
                     </div>
                 @endforeach

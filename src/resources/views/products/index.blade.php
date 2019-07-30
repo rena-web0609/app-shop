@@ -12,7 +12,7 @@
         <div class="products js-get-product">
              @foreach($products as $product)
              <div class="index-product">
-                 <img class="index-img" src="{{ asset('/storage/pic/'.$product->pic) }}">
+                 <img class="index-img" src="{{ asset($product->pic) }}">
                  <a id="name" class="product-name" href={{ route('products.show', ['product' => $product->id]) }}>{{ $product->name }}<br></a>
              </div>
              @endforeach
@@ -52,7 +52,7 @@
                         var a = $('<a class="product-name" id= "product' + i + '">');
 
                         image.attr({
-                            "src": '/storage/pic/'+ pic,
+                            "src": pic,
                             "class": 'index-img',
                         });
 

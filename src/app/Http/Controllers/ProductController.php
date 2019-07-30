@@ -69,7 +69,7 @@ class ProductController extends Controller
         $product->user_id = $id;
 
         //入力情報（heroku）
-        $product = $request->all();
+        $product -> fill($request->all());
 
         //画像(local)
         //$filename = $request->pic->store('public/pic');
@@ -80,10 +80,11 @@ class ProductController extends Controller
             $pic_name = $pic->getRealPath();
             //Cloudinaryへアップロード
             Cloudder::upload($pic_name, null);
-            //直前にアップロードした画像のユニークIDを取得
+            // 直前にアップロードした画像のユニークIDを取得します。
             $publicId = Cloudder::getPublicId();
-            //URLを生成
+            // URLを生成します
             $picUrl = Cloudder::show($publicId);
+            $product->pic = $picUrl;
         }
 
         //保存
@@ -157,14 +158,16 @@ class ProductController extends Controller
             //$product->pic = basename($filename);}
 
         //画像変更(heroku)
+        //画像(heroku)
         if($pic = $request->file('pic')){
             $pic_name = $pic->getRealPath();
             //Cloudinaryへアップロード
             Cloudder::upload($pic_name, null);
-            //直前にアップロードした画像のユニークIDを取得
+            // 直前にアップロードした画像のユニークIDを取得します。
             $publicId = Cloudder::getPublicId();
-            //URLを生成
+            // URLを生成します
             $picUrl = Cloudder::show($publicId);
+            $product->pic = $picUrl;
         }
 
         //保存

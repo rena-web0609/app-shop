@@ -5,7 +5,7 @@
         <li><a href={{ route('products.index') }}> > 戻る</a></li>
     </ul>
     <div class="container show-product">
-        <img class="show-image" src="{{ asset('/storage/pic/'.$product->pic) }}">
+        <img class="show-image" src="{{ asset($product->pic) }}">
         <h2 class="content-name">{{ $product->name }}</h2>
         <p class="content-price">¥ {{ $product->price }}（税込み）</p>
         <p class="content-comment">{{ $product->comment }}</p>
@@ -49,7 +49,7 @@
                 for(var i = 0; i < len; i++) {
                     console.log(data);
                     $('.js-remove-product').replaceWith($("<a>").attr({"id": name, "href": '{{ route('products.show', ['product' => $product->id]) }}' }).text(data[i].name));
-                    $('.js-get-product').append($("<img>").attr({"src" : 'data:pic/jpeg;base64,{{ $product->pic }}'}));
+                    $('.js-get-product').append($("<img>").attr({"src" : '{{ asset($product->pic) }}' }));
                 }
             }).fail(function (data) {
                 //通信失敗時の処理
