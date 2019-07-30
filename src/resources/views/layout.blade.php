@@ -30,7 +30,6 @@
         <li>マイページメニュー</li>
         <li><a href={{ route('products.create') }}>商品を登録する</a></li>
         <li><a href={{ route('home.show') }}>店舗商品一覧</a></li>
-        <li><a href="#">お問い合わせ</a></li>
         <li><a class="dropdown-item" href="{{ route('logout') }}"
                onclick="event.preventDefault();
                document.getElementById('logout-form').submit();">
